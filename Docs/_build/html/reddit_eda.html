@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>reddit_eda module &#8212; Detección de riesgo de depresión basado en mensajes obtenidos de Reddit 1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/scrolls.css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="index.html"
+          title="back to the documentation overview"><span>reddit_eda module</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="#">reddit_eda module</a>
+      </div>
+      <div id="contentwrapper">
+        <div id="toc" role="navigation" aria-label="table of contents navigation">
+          <h3>Table of Contents</h3>
+          <ul>
+<li><a class="reference internal" href="#">reddit_eda module</a><ul>
+<li><a class="reference internal" href="#reddit_eda.create_model"><code class="docutils literal notranslate"><span class="pre">create_model()</span></code></a></li>
+<li><a class="reference internal" href="#reddit_eda.expand_contractions"><code class="docutils literal notranslate"><span class="pre">expand_contractions()</span></code></a></li>
+<li><a class="reference internal" href="#reddit_eda.model_configuration"><code class="docutils literal notranslate"><span class="pre">model_configuration()</span></code></a></li>
+<li><a class="reference internal" href="#reddit_eda.model_fitting"><code class="docutils literal notranslate"><span class="pre">model_fitting()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <div role="main">
+        
+  <section id="module-reddit_eda">
+<span id="reddit-eda-module"></span><h1>reddit_eda module<a class="headerlink" href="#module-reddit_eda" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="reddit_eda.create_model">
+<span class="sig-prename descclassname"><span class="pre">reddit_eda.</span></span><span class="sig-name descname"><span class="pre">create_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#reddit_eda.create_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a 3 layer deep Bert based model with a dropout layer, a Bidirectional GRU layer and a Dense layer</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="reddit_eda.expand_contractions">
+<span class="sig-prename descclassname"><span class="pre">reddit_eda.</span></span><span class="sig-name descname"><span class="pre">expand_contractions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reddit_eda.expand_contractions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expands contractions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – text to be expanded</p></li>
+<li><p><strong>contractions_dict</strong> – dictionary with contractions</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with replaced contractions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="reddit_eda.model_configuration">
+<span class="sig-prename descclassname"><span class="pre">reddit_eda.</span></span><span class="sig-name descname"><span class="pre">model_configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reddit_eda.model_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the model with the given parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>opt</strong> – Optimizer to adjust the parameters of the model</p></li>
+<li><p><strong>loss</strong> – Loss function which will evaluate the modeling of the dataset</p></li>
+<li><p><strong>metrics</strong> – List of metrics which the model will use assess its efficacy</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Compiled model with given optimizer, loss function and metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="reddit_eda.model_fitting">
+<span class="sig-prename descclassname"><span class="pre">reddit_eda.</span></span><span class="sig-name descname"><span class="pre">model_fitting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_split</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callbacks</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reddit_eda.model_fitting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains the model with a given dataset, epochs, validation split and callbacks and calculates the time each epoch takes to train</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_train</strong> – Training split of the dataset</p></li>
+<li><p><strong>y_train</strong> – Labels of the training split of the dataset</p></li>
+<li><p><strong>epochs</strong> – How many epochs the model will train for</p></li>
+<li><p><strong>validation_split</strong> – How much of the training set will be reserved for validation</p></li>
+<li><p><strong>callbacks</strong> – Callbacks to assign to the model, such as checkpoints or early stopping based on a metric</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Model trained to the last epoch or best model based on a metric, if an early stop was set</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Garcia, Montoya, Vasquez.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    </div>
+  </body>
+</html>
